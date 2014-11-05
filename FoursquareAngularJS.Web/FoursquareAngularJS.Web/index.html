@@ -4,13 +4,13 @@
     <title>Explore Foursquare</title>
     <link href="content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="content/css/amelia-bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="Content/css/toaster.css" rel="stylesheet" />
-    <link href="content/css/loading-bar.min.css" rel="stylesheet" />
-    <link href="content/css/site.css" rel="stylesheet" />
+    <link href="content/css/toaster.css" rel="stylesheet" />
+    <link href="content/css/loading-bar.css" rel="stylesheet" />
+    <link href="content/site.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link href="favicon.ico" rel="shortcut icon" />
 </head>
-<body>
+<body data-ng-app="FoursquareApp">
     <div id="page">
         <header class="container">
             <div class="navbar navbar-default" id="menu">
@@ -30,7 +30,7 @@
             </div>
         </header>
         <section class="container" id="body">
-            <div></div>
+            <div data-ng-view=""></div>       
         </section>
 
         <hr />
@@ -48,5 +48,7 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-animate.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.min.js"></script>
-<script type="text/javascript" src="scripts/toaster.js"></script>
-<script type="text/javascript" src="scripts/loading-bar.min.js"></script>
+<script src="app/app.js"></script>
+<script src="Scripts/toaster.js"></script>
+<script src="Scripts/loading-bar.js"></script>
+<script src="app/controllers/placesExplorerCtrl.js"></script>
