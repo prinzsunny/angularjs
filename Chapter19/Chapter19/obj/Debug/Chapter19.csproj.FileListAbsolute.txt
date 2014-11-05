@@ -1,0 +1,5 @@
+C:\Projects\AngularJS\Chapter19\Chapter19\bin\Chapter19.dll
+C:\Projects\AngularJS\Chapter19\Chapter19\bin\Chapter19.pdb
+C:\Projects\AngularJS\Chapter19\Chapter19\obj\Debug\Chapter19.csprojResolveAssemblyReference.cache
+C:\Projects\AngularJS\Chapter19\Chapter19\obj\Debug\Chapter19.dll
+C:\Projects\AngularJS\Chapter19\Chapter19\obj\Debug\Chapter19.pdb
