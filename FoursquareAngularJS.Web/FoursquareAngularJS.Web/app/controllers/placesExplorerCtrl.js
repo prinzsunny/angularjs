@@ -1,5 +1,4 @@
-﻿'use strict';
-app.controller('placesExplorerController', function ($scope, placesExplorerService, $filter) {
+﻿app.controller('placesExplorerController', function ($scope,$modal, placesExplorerService, placesPhotosService, $filter) {
 
     $scope.exploreNearby = "San Francisco";
     $scope.exploreQuery = "";
@@ -72,5 +71,31 @@ app.controller('placesExplorerController', function ($scope, placesExplorerServi
     $scope.buildVenueThumbnail = function (photo) {
 
         return photo.items[0].prefix + '128x128' + photo.items[0].suffix;
+    };
+    
+    $scope.showVenuePhotos = function (venueId, venueName) {
+
+        placesPhotosService.get({ venueId: venueId }, function (photosResult) {
+
+            var modalInstance = $modal.open({
+                templateUrl: 'app/views/placesphotos.html',
+                controller: 'placesPhotosController',
+                resolve: {
+                    venueName: function () {
+                        return venueName;
+                    },
+                    venuePhotos: function () {
+                        return photosResult.response.photos.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                //$scope.selected = selectedItem;
+            }, function () {
+                //alert('Modal dismissed at: ' + new Date());
+            });
+
+        });
     };
 });
