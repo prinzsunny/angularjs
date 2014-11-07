@@ -4,15 +4,17 @@
     $scope.exploreQuery = "";
     $scope.filterValue = "";
 
+    // Filtered Places
     $scope.places = [];
     $scope.filteredPlaces = [];
     $scope.filteredPlacesCount = 0;
 
-    //paging
+    //Paging
     $scope.totalRecordsCount = 0;
     $scope.pageSize = 10;
     $scope.currentPage = 1;
 
+    // initialize the watch and get the places on load
     init();
 
     function init() {
@@ -21,6 +23,7 @@
         getPlaces();
     }
 
+    // Get the result from Forsquare api
     function getPlaces() {
 
         var offset = ($scope.pageSize) * ($scope.currentPage - 1);
@@ -51,28 +54,33 @@
         });
     }
 
+   // Call this method when the search button is clicked
     $scope.doSearch = function () {
-
         $scope.currentPage = 1;
         getPlaces();
     };
 
+    // Call this method when the user clicks on  page buttons
     $scope.pageChanged = function (page) {
 
         $scope.currentPage = page;
         getPlaces();
     };
 
+    // Create the category icon
     $scope.buildCategoryIcon = function (icon) {
 
         return icon.prefix + '44' + icon.suffix;
     };
 
+    // Create the venue thumbnail
     $scope.buildVenueThumbnail = function (photo) {
 
         return photo.items[0].prefix + '128x128' + photo.items[0].suffix;
     };
     
+
+     // Get the images from Foursquare api
     $scope.showVenuePhotos = function (venueId, venueName) {
 
         placesPhotosService.get({ venueId: venueId }, function (photosResult) {
